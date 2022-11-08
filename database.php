@@ -1,12 +1,13 @@
-<?php 
+<?php
 
-class Koneksi {
+class Koneksi
+{
   private $username = 'root',
-          $password = '',
-          $host = 'localhost',
-          $database = 'pdo',
-          $conn,
-          $stmt;
+    $password = '',
+    $host = 'localhost',
+    $database = 'pdo',
+    $conn,
+    $stmt;
 
   public function __construct()
   {
@@ -18,7 +19,7 @@ class Koneksi {
     }
   }
 
-  public function tampilData($sql) 
+  public function tampilData($sql)
   {
     $this->stmt = $this->conn->prepare($sql);
     $this->stmt->execute();
@@ -66,10 +67,4 @@ class Koneksi {
     $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
   }
-
 }
-
-
-
-
-?>
